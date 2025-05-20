@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<preface xml:id="pref-motivation" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Course Motivation</title>
+
+    <interactive label="pref-interactive-motivation" platform="doenetml" width="100%" aspect="1:1.5">
+        <slate surface="doenetml">
+            <xi:include parse="text" href="doenet/pref-doenet-motivation.doenetml"/>
+        </slate>
+    </interactive> 
+
+</preface>
