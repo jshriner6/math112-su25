@@ -9,23 +9,23 @@
     <paragraphs>
         <title>Course Meetings</title>
         <p>
-            Days and Time: M/T/W/R/F at xx:xx XM
+            Days and Time: M/T/W/R 10:30 - 11:45 AM        
         </p>
         <p>
-            Location: XXXX
+            Location: ENG E103
         </p>
     </paragraphs>  
 
     <paragraphs>
         <title>Course Instructor</title>
         <p>
-            Instructor: XXXX (EMAIL)
+            Instructor: Dr. Jeff Shriner (jeffrey.shriner@colostate.edu)
         </p>
         <p>
-            Office: XXXX
+            Office: Weber 236
         </p>
         <p>
-            Office Hours: M/T/W/R/F at xx:xx XM
+            Office Hours: M/T/W/R 12:00 -- 1:00 PM, or by appointment.
         </p>
         
     </paragraphs>
@@ -142,6 +142,7 @@
         <!-- Pick the schedule corresponding to your session (16 week, 8 week, or 5 week, and comment out the rest); Adjust 
          for holidays as necessary --> 
         
+        <!--
         <tabular row-headers="yes" halign="center" right="minor" left="minor" top="minor" bottom="minor">
             <col right="major"/>
             <col/>
@@ -251,6 +252,7 @@
             </row>
 
         </tabular>
+        -->
 
         <tabular row-headers="yes" halign="center" right="minor" left="minor" top="minor" bottom="minor">
             <col right="major"/>
@@ -324,6 +326,7 @@
 
         </tabular>
 
+        <!--
         <tabular row-headers="yes" halign="center" right="minor" left="minor" top="minor" bottom="minor">
             <col right="major"/>
             <col/>
@@ -381,6 +384,7 @@
             </row>
         
         </tabular>
+        -->
         
     </paragraphs>
 

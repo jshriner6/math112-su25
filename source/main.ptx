@@ -6,7 +6,7 @@
 
   <book xml:id="math-of-sustainability">
     <title>Mathematics of Sustainability</title>
-    <subtitle>Template</subtitle><!--Replace with Semester/Year-->
+    <subtitle>Summer 2025</subtitle><!--Replace with Semester/Year-->
  
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
