@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette: earth-sea                    *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Law of Large Numbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematics of Sustainability">
+<meta property="book:author" content="Jeff Shriner">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.7.0';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.5eb70769dc5e56d7.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.253ff4af1e53e55f.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="Math 112" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math-of-sustainability.html"><span class="title">Mathematics of Sustainability:</span> <span class="subtitle">Summer 2025</span></a></h1>
+<p class="byline">Jeff Shriner</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-5-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-05.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-06.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pref-acknowledgements.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pref-syllabus.html" class="internal"><span class="title">Course Syllabus</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pref-expectations.html" class="internal"><span class="title">Activity Expectations</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pref-motivation.html" class="internal"><span class="title">Course Motivation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-01.html" class="internal"><span class="codenumber">1</span> <span class="title">Measuring</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-1-1.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Units</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-1.html#ws-1-1-1" class="internal"><span class="codenumber">1.1</span> <span class="title">Unit Conversion Factors Part 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-1.html#ws-1-1-2" class="internal"><span class="codenumber">1.1</span> <span class="title">Unit Conversion Factors Part 2</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-1.html#ws-1-1-3" class="internal"><span class="codenumber">1.1</span> <span class="title">Relatable Measurements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-1-2.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Change and Estimation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-2.html#ws-1-2-1" class="internal"><span class="codenumber">1.2</span> <span class="title">Relative Change</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-2.html#ws-1-2-2" class="internal"><span class="codenumber">1.2</span> <span class="title">Scientific Notation</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-2.html#ws-1-2-3" class="internal"><span class="codenumber">1.2</span> <span class="title">Orders of Magnitude</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-1-3.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Representations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-3.html#ws-1-3-1" class="internal"><span class="codenumber">1.3</span> <span class="title">Introduction to Representations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-3.html#ws-1-3-2" class="internal"><span class="codenumber">1.3</span> <span class="title">Representations Summary</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-3.html#ws-1-3-3" class="internal"><span class="codenumber">1.3</span> <span class="title">Choosing a Representation</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-1-3.html#ws-1-3-4" class="internal"><span class="codenumber">1.3</span> <span class="title">Misleading Representations</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-02.html" class="internal"><span class="codenumber">2</span> <span class="title">Flowing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-2-1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Stocks and Flows</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-1.html#ws-2-1-1" class="internal"><span class="codenumber">2.1</span> <span class="title">Stock-Flow Models</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-1.html#ws-2-1-2" class="internal"><span class="codenumber">2.1</span> <span class="title">System Diagrams</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-2-2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Net Flow and Equilibrium</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-2.html#ws-2-2-1" class="internal"><span class="codenumber">2.2</span> <span class="title">Net Flow</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-2.html#ws-2-2-2" class="internal"><span class="codenumber">2.2</span> <span class="title">Residence Time</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-2-3.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Equilibrium Values</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-3.html#ws-2-3-1" class="internal"><span class="codenumber">2.3</span> <span class="title">Dependency Links</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-3.html#ws-2-3-2" class="internal"><span class="codenumber">2.3</span> <span class="title">Equilibrium Values</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-2-4.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Parameters</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-4.html#ws-2-4-1" class="internal"><span class="codenumber">2.4</span> <span class="title">Dependency Links: Re-visited</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-4.html#ws-2-4-2" class="internal"><span class="codenumber">2.4</span> <span class="title">Parameters in System Diagrams</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-2-4.html#ws-2-4-3" class="internal"><span class="codenumber">2.4</span> <span class="title">Parameters and Equilibrium Values</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-03.html" class="internal"><span class="codenumber">3</span> <span class="title">Connecting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Networks and Graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-1.html#ws-3-1-1" class="internal"><span class="codenumber">3.1</span> <span class="title">Networks</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-1.html#ws-3-1-2" class="internal"><span class="codenumber">3.1</span> <span class="title">Graphs</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-1.html#ws-3-1-3" class="internal"><span class="codenumber">3.1</span> <span class="title">Directed Graphs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Resilience</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-2.html#ws-3-2-1" class="internal"><span class="codenumber">3.2</span> <span class="title">Complete Graphs</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-2.html#ws-3-2-2" class="internal"><span class="codenumber">3.2</span> <span class="title">Graph Densities</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-2.html#ws-3-2-3" class="internal"><span class="codenumber">3.2</span> <span class="title">Clustering Coefficients</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-3-2.html#ws-3-2-4" class="internal"><span class="codenumber">3.2</span> <span class="title">Connectivity</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-04.html" class="internal"><span class="codenumber">4</span> <span class="title">Changing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Dynamic Models and Feedback</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-1.html#ws-4-1-1" class="internal"><span class="codenumber">4.1</span> <span class="title">Feedback Loops</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-1.html#ws-4-1-2" class="internal"><span class="codenumber">4.1</span> <span class="title">Feedback Loops in System Diagrams</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-1.html#ws-4-1-3" class="internal"><span class="codenumber">4.1</span> <span class="title">Stock Behavior with Stabilizing Feedback</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">The Exponential Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-2.html#ws-4-2-1" class="internal"><span class="codenumber">4.2</span> <span class="title">Absolute and Relative Change Part 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-2.html#ws-4-2-2" class="internal"><span class="codenumber">4.2</span> <span class="title">Absolute and Relative Change Part 2</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-2.html#ws-4-2-3" class="internal"><span class="codenumber">4.2</span> <span class="title">Exponential Graphs</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-2.html#ws-4-2-4" class="internal"><span class="codenumber">4.2</span> <span class="title">Stock Behavior Over Time</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-2.html#ws-4-2-5" class="internal"><span class="codenumber">4.2</span> <span class="title">Stabilizing and Amplifying Exponential Behavior</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Logistic Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-3.html#ws-4-3-1" class="internal"><span class="codenumber">4.3</span> <span class="title">Logistic Behavior</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-3.html#ws-4-3-2" class="internal"><span class="codenumber">4.3</span> <span class="title">Step 1: Stabilizing/Amplifying, Increasing/Decreasing</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-3.html#ws-4-3-3" class="internal"><span class="codenumber">4.3</span> <span class="title">Logistic Line Graphs</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-3.html#ws-4-3-4" class="internal"><span class="codenumber">4.3</span> <span class="title">Logistic Equations and Graphs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-4.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Equilibria and Stabililty</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-4.html#ws-4-4-1" class="internal"><span class="codenumber">4.4</span> <span class="title">Stability Introduction</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-4.html#ws-4-4-2" class="internal"><span class="codenumber">4.4</span> <span class="title">Stability In Continuous Dynamical Systems</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-4.html#ws-4-4-3" class="internal"><span class="codenumber">4.4</span> <span class="title">Half-Stable Equilibria</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-4.html#ws-4-4-4" class="internal"><span class="codenumber">4.4</span> <span class="title">Stability in Discrete Dynamical Systems</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-5.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Tipping Points</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-5.html#ws-4-5-1" class="internal"><span class="codenumber">4.5</span> <span class="title">Stability Re-visited</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-5.html#ws-4-5-2" class="internal"><span class="codenumber">4.5</span> <span class="title">Sensitivity</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-5.html#ws-4-5-3" class="internal"><span class="codenumber">4.5</span> <span class="title">Tipping Points</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-4-5.html#ws-4-5-4" class="internal"><span class="codenumber">4.5</span> <span class="title">Tipping Point Behaviors</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-05.html" class="internal"><span class="codenumber">5</span> <span class="title">Risking</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-5-1.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Describing Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-1" class="internal"><span class="codenumber">5.1</span> <span class="title">Data Collection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-2" class="internal"><span class="codenumber">5.1</span> <span class="title">Describing Data Part 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-3" class="internal"><span class="codenumber">5.1</span> <span class="title">Describing Data Part 2</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-4" class="internal"><span class="codenumber">5.1</span> <span class="title">Analyzing the Mean</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-5" class="internal"><span class="codenumber">5.1</span> <span class="title">Quartiles and Outliers</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-6" class="internal"><span class="codenumber">5.1</span> <span class="title">Box Plots</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-1.html#ws-5-1-7" class="internal"><span class="codenumber">5.1</span> <span class="title">Creating Box Plots</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-5-2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Visualizing Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-2.html#ws-5-2-1" class="internal"><span class="codenumber">5.2</span> <span class="title">Introduction to Frequency Histograms</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-2.html#ws-5-2-2" class="internal"><span class="codenumber">5.2</span> <span class="title">Frequency Distributions Part 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-2.html#ws-5-2-3" class="internal"><span class="codenumber">5.2</span> <span class="title">Building Frequency Histograms</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-2.html#ws-5-2-4" class="internal"><span class="codenumber">5.2</span> <span class="title">Frequency Distributions Part 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-5-3.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Probability Models</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-3.html#ws-5-3-1" class="internal"><span class="codenumber">5.3</span> <span class="title">Probability Models</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-3.html#ws-5-3-2" class="internal"><span class="codenumber">5.3</span> <span class="title">Basic Probability Rules</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-3.html#ws-5-3-3" class="internal"><span class="codenumber">5.3</span> <span class="title">Using Probability Rules</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-5-4.html" class="internal"><span class="codenumber">5.4</span> <span class="title">The Law of Large Numbers</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-4.html#ws-5-4-1" class="internal"><span class="codenumber">5.4</span> <span class="title">Introduction to Density Histograms</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-4.html#ws-5-4-2" class="internal"><span class="codenumber">5.4</span> <span class="title">Using Relative Frequencies to Create Density Histograms</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-4.html#ws-5-4-3" class="internal"><span class="codenumber">5.4</span> <span class="title">Law of Large Numbers Part 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-5-4.html#ws-5-4-4" class="internal"><span class="codenumber">5.4</span> <span class="title">Law of Large Numbers Part 2</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-06.html" class="internal"><span class="codenumber">6</span> <span class="title">Deciding</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-6-1.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Game Theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-1.html#ws-6-1-1" class="internal"><span class="codenumber">6.1</span> <span class="title">Analyzing a Payoff Matrix</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-1.html#ws-6-1-2" class="internal"><span class="codenumber">6.1</span> <span class="title">The Prisoner’s Dilemma</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-1.html#ws-6-1-3" class="internal"><span class="codenumber">6.1</span> <span class="title">Dominant Choices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-1.html#ws-6-1-4" class="internal"><span class="codenumber">6.1</span> <span class="title">Nash Equilibria</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-6-2.html" class="internal"><span class="codenumber">6.2</span> <span class="title">The Commons</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-2.html#ws-6-2-1" class="internal"><span class="codenumber">6.2</span> <span class="title">Identifying Commons</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-2.html#ws-6-2-2" class="internal"><span class="codenumber">6.2</span> <span class="title">Tragedy of the Commons</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-2.html#ws-6-2-3" class="internal"><span class="codenumber">6.2</span> <span class="title">Managing the Commons</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-6-3.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Values and Ethics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-3.html#ws-6-3-1" class="internal"><span class="codenumber">6.3</span> <span class="title">Individual Statement</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-6-3.html#ws-6-3-2" class="internal"><span class="codenumber">6.3</span> <span class="title">Group Discussion</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-case-studies.html" class="internal"><span class="codenumber">7</span> <span class="title">Case Studies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-topic.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Topic Selection</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-topic.html#ws-topic" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Topic Selection</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-outline.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Outline Presentation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-outline.html#ws-outline" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Outline Presentation</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-draft.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Draft Presentation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-draft.html#ws-draft" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Draft Presentation</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-finalize.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Finalize Presentation</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec-finalize.html#ws-finalize" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Finalize Presentation</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-5-4"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.4</span><span class="space"> </span><span class="title">The Law of Large Numbers</span>
+</h2>
+<section class="introduction" id="sec-5-4-2"><div class="para" id="sec-5-4-2-1">When it is possible to repeat a random experiment many times, we can use this sampling data (instead of a model) to approximate probabilities of outcomes in the sample space. The purpose of this activity is to practice using frequency data to estimate probabilities, and to illustrate how increasing the number of samples we use makes our estimates better.</div>
+<div class="para" id="sec-5-4-2-2">The objectives of this activity are that you can...</div></section><article class="objectives goal-like" id="sec-5-4-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="sec-5-4-3-1">
+<li id="sec-5-4-3-1-1"><div class="para" id="p-derived-sec-5-4-3-1-1">create a probability density histogram from frequencies.</div></li>
+<li id="sec-5-4-3-1-2"><div class="para" id="p-derived-sec-5-4-3-1-2">explain how the law of large numbers can be used to approximate probabilities.</div></li>
+</ol></article><section class="paragraphs" id="sec-5-4-4"><h3 class="heading"><span class="title">Let’s get to work....</span></h3>
+<div class="para" id="sec-5-4-4-2">In <a href="sec-5-2.html" class="internal" title="Section 5.2: Visualizing Data">Section 5.2</a> we used frequency histograms of numerical data to give us a visual of how that data is distributed. In <a href="sec-5-3.html" class="internal" title="Section 5.3: Probability Models">Section 5.3</a> we saw how we could describe data from a random experiment using the language of probability. It is possible to combine these ideas into a <dfn class="terminology">probability density histogram</dfn> (or just <dfn class="terminology">density histogram</dfn>), which gives a visual of how probabilities are distributed over the sample space of a random experiment. We will describe the process of creating a density histogram with an example.</div>
+<div class="para" id="sec-5-4-4-3">Suppose you are interested in measuring arsenic levels in a large water reservoir. As a random experiment, this could be framed as drawing a one liter sample and testing the arsenic concentration in parts per billion (ppb) of that sample. The outcomes in the sample space could be <span class="process-math">\(0-5\)</span> ppb, <span class="process-math">\(5-10\)</span> ppb, <span class="process-math">\(10-15\)</span> ppb, and <span class="process-math">\(15-20\)</span> ppb.</div>
+<div class="para" id="sec-5-4-4-4">In the random experiment of rolling a pair of dice, we used our knowledge of every possible roll to determine the probabilities of outcomes in the sample space. Similarly, in order to know the true probablities of each outcome in the sample space of the lake draws, we would have to have knowledge of every possible one liter sample from the reservoir. Unlike rolling a pair of dice, this is not feasible to do in reality. In these instances it can be useful to approximate the probability of an outcome by computing a <dfn class="terminology">relative frequency</dfn>. While we can’t draw every possible one liter sample from the reservoir, we can draw several different samples (i.e., repeat our experiment multiple times).</div>
+<article class="definition definition-like" id="sec-5-4-4-5"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="sec-5-4-4-5-1">If we repeat an experiment <span class="process-math">\(N\)</span> times, and an outcome has a frequency of <span class="process-math">\(y\text{,}\)</span> then the <dfn class="terminology">relative frequency</dfn> of that outcome is defined to be <span class="process-math">\(\frac{y}{N}\text{.}\)</span>
+</div></article><div class="para" id="sec-5-4-4-6">The relative frequency of an outcome is a number between <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> and can be thought of as an approximation of the probability of the outcome.</div>
+<div class="para" id="sec-5-4-4-7">For example, suppose we draw <span class="process-math">\(20\)</span> one liter samples from the reservoir. <a href="sec-5-4.html#tab-ch5-rel-freq" class="xref" data-knowl="./knowl/xref/tab-ch5-rel-freq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.2">Table 5.4.2</a> shows frequencies and relative frequencies for each outcome in our sample space.</div>
+<figure class="table table-like" id="tab-ch5-rel-freq"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">5.4.2<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r0 l0 t0 lines">Outcome</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">Frequency</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">Relative Frequency</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(0-5\)</span> ppb</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{10}{20} = 0.50\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(5-10\)</span> ppb</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{5}{20} = 0.25\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(10-15\)</span> ppb</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{3}{20} = 0.15\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">
+<span class="process-math">\(15-20\)</span> ppb</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{2}{20} = 0.10\)</span></td>
+</tr>
+</table></div></figure><div class="para" id="sec-5-4-4-9">Notice that the sum of the frequencies is the total number of samples, and the sum of the relative frequencies is <span class="process-math">\(1\)</span> (<span class="process-math">\(100 \%\)</span>).</div></section><section class="worksheet" id="ws-5-4-1"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Introduction to Density Histograms</span><div class="print-links">
+<a href="ws-5-4-1-a4.html" class="a4">A4</a><a href="ws-5-4-1-letter.html" class="us">US</a>
+</div>
+</h3>
+<section class="introduction" id="ws-5-4-1-2"><div class="para" id="ws-5-4-1-2-1">A density histogram is a histogram which communicates the relative frequencies (e.g., <span class="process-math">\(0.50\)</span>) instead of the actual frequencies (e.g., <span class="process-math">\(10\)</span>). A density histogram for our example of <span class="process-math">\(20\)</span> one liter samples is below.</div></section><iframe id="ch5-interactive-density-intro" width="600" height="600" src="ch5-interactive-density-intro-if.html"></iframe><article class="exercise exercise-like" id="ws-5-4-1-4"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="ws-5-4-1-4-1-1">In your group, answer the following question: how are the relative frequencies of each outcome being communicated in the histogram?</div>
+<div class="solutions"><details id="ws-5-4-1-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="ws-5-4-1-4-2-1">What is the area of each rectangle in the histogram? What is the sum of the areas of all of the rectangles in the histogram?</div></div></details></div></article></section><section class="paragraphs" id="sec-5-4-6"><div class="para" id="sec-5-4-6-1">A common misinterpretation of density histograms is to read the height of each rectangle as the relative frequency of that outcome. This is only true if the bin width of each outcome is <span class="process-math">\(1\text{.}\)</span> In general, the relative frequencies of outcomes are communicated in density histograms through the <em class="emphasis">areas</em> of rectangles.</div></section><section class="worksheet" id="ws-5-4-2"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Using Relative Frequencies to Create Density Histograms</span><div class="print-links">
+<a href="ws-5-4-2-a4.html" class="a4">A4</a><a href="ws-5-4-2-letter.html" class="us">US</a>
+</div>
+</h3>
+<section class="introduction" id="ws-5-4-2-2"><div class="para" id="ws-5-4-2-2-1">Suppose you and your group collect <span class="process-math">\(20\)</span> new samples, given by the table below. Compute the relative frequencies of each outcome. Then create a frequency histogram and a density histogrm for the data.</div></section><iframe id="ch5-interactive-rel-freq-density" width="600" height="900" src="ch5-interactive-rel-freq-density-if.html"></iframe><section class="onepage" id="ws-5-4-2-4"><article class="exercise exercise-like" id="ws-5-4-2-4-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="ws-5-4-2-4-1-1-1">Choose new variations of the problem with the “New Variation” button. Before moving on, do at least 2 different variations, and write down an explanation for how to compute the relative frequency of an outcome and create a density histogram as if you were explaining it to someone new.</div>
+<div class="workspace" data-space="1.25in"></div></article><article class="exercise exercise-like" id="ws-5-4-2-4-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="ws-5-4-2-4-2-1-1">Do you think the shapes of the frequency histograms are related to the shapes of density histograms?</div>
+<div class="workspace" data-space="1.25in"></div></article></section></section><section class="paragraphs" id="sec-5-4-8"><h3 class="heading"><span class="title">Back to work....</span></h3>
+<div class="para" id="sec-5-4-8-2">We’ve seen that we can approximate probabilities of outcomes by computing relative frequencies. What if we would like to get a better approximation than what we currently have? It seems intuitive that we should increase our sample size (i.e., repeat the experiment more times). After all, the more samples we have, the more information we have about the outcomes in our sample space. This intuition can be confirmed and made more precise with the <dfn class="terminology">Law of Large Numbers</dfn>, which we will illustrate below with several examples.</div></section><section class="worksheet" id="ws-5-4-3"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Law of Large Numbers Part 1</span><div class="print-links">
+<a href="ws-5-4-3-a4.html" class="a4">A4</a><a href="ws-5-4-3-letter.html" class="us">US</a>
+</div>
+</h3>
+<section class="introduction" id="ws-5-4-3-2"><div class="para" id="ws-5-4-3-2-1">Let’s first explore a random experiment that we are already familiar with: flipping a fair coin. Use the interactive provided to answer the questions below and discuss in your group.</div></section><iframe id="ch5-interactive-lln-1" width="600" height="1350" src="ch5-interactive-lln-1-if.html"></iframe></section><details id="sec-5-4-10" class="remark remark-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
+</h3></summary><article class="remark remark-like knowl__content"><div class="para" id="sec-5-4-10-1">The shared spreadsheet illustrates another important fact in probability called the Central Limit Theorem. Intuitively, it says that for large sample sizes, the distribution of the averages of those samples is normally distributed with a mean approximately equal to the true mean.</div></article></details><section class="paragraphs" id="sec-5-4-11"><h3 class="heading"><span class="title">Back to work....</span></h3>
+<div class="para" id="sec-5-4-11-2">Intuitively, the Law of Large Numbers says that if we repeat a random experiment many times, then the density histogram of relative frequencies will almost certainly approach the density histogram which reflects the true probabilities of the outcomes of the random experiment.</div>
+<div class="para" id="sec-5-4-11-3">In our example of flipping a coin, we saw this illustrated in that as we increased the number of flips, the density histogram began to consistently reflect the uniform distribution in which each outcome has probability <span class="process-math">\(0.50\text{.}\)</span> This can be most powerful, however, for random experiments in which we cannot in practice determine the true probability density histogram, such as our example of collecting water samples from a reservoir.</div></section><section class="worksheet" id="ws-5-4-4"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Law of Large Numbers Part 2</span><div class="print-links">
+<a href="ws-5-4-4-a4.html" class="a4">A4</a><a href="ws-5-4-4-letter.html" class="us">US</a>
+</div>
+</h3>
+<section class="introduction" id="ws-5-4-4-2"><div class="para" id="ws-5-4-4-2-1">Below is another interactive which allows you to (virtually) collect water samples from a reservoir, and returns the concentration of arsenic (in ppb) of your samples, as well as a density histogram of your samples. In your group, use the interactive along with the Law of Large Numbers to write a statement regarding your opinion about the arsenic levels in the reservoir. According to the Environmental Protection Agency, <a class="external" href="https://www.epa.gov/dwreginfo/drinking-water-arsenic-rule-history" target="_blank">arsenic levels in drinking water should be less than <span class="process-math">\(10\)</span> ppb</a><details class="ptx-footnote" aria-live="polite" id="ws-5-4-4-2-1-2"><summary class="ptx-footnote__number" title="Footnote 5.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ws-5-4-4-2-1-2"><code class="code-inline tex2jax_ignore">www.epa.gov/dwreginfo/drinking-water-arsenic-rule-history</code></div></details>.</div></section><iframe id="ch5-interactive-lln-2" width="600" height="750" src="ch5-interactive-lln-2-if.html"></iframe></section><section class="conclusion" id="sec-5-4-13"><h3 class="heading">Reflection.<span></span>
+</h3>
+<div class="para logical" id="sec-5-4-13-2">
+<div class="para">Let’s reflect on what we’ve learned, and what we still have questions about.</div>
+<ol class="decimal" id="sec-5-4-13-2-1">
+<li id="sec-5-4-13-2-1-1"><div class="para" id="p-derived-sec-5-4-13-2-1-1">How can we estimate probabilities of outcomes in a random experiment?</div></li>
+<li id="sec-5-4-13-2-1-2"><div class="para" id="p-derived-sec-5-4-13-2-1-2">How does the Law of Large Numbers help us understand uncertainty related to a random experiment?</div></li>
+<li id="sec-5-4-13-2-1-3"><div class="para" id="p-derived-sec-5-4-13-2-1-3">What would be a good template sentence to use to communicate relative frequencies obtained from a large number of samples?</div></li>
+</ol>
+</div></section><section class="conclusion" id="sec-5-4-14"><h3 class="heading">Section Checkpoint.<span></span>
+</h3>
+<div class="para" id="sec-5-4-14-2">Sign in to your <a class="external" href="https://www.doenet.org/" target="_blank">Doenet course</a><details class="ptx-footnote" aria-live="polite" id="sec-5-4-14-2-2"><summary class="ptx-footnote__number" title="Footnote 5.4.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec-5-4-14-2-2"><code class="code-inline tex2jax_ignore">www.doenet.org/</code></div></details> to complete the <a href="sec-5-4.html" class="internal" title="Section 5.4: The Law of Large Numbers">Section 5.4</a> checkpoint questions.</div></section></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-5-3.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-06.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
