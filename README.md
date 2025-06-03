@@ -76,7 +76,7 @@ When you're happy with your updates, you need to deploy your work to Github page
 There are different options on how you can have students access this text. You can just give them access to the url within Canvas, and they can link out to the full document. You can also host different pieces of the html document within Canvas using an iframe. For example, I could edit the "Syllabus" page in my Canvas course and select the "Embed" option (it is the one with a cloud icon). I could then enter 
 
 ```bash
-<iframe src='https://https://jshriner6.github.io/math-of-sustainability/pref-syllabus.html?embed'
+<iframe src='https://jshriner6.github.io/math-of-sustainability/pref-syllabus.html?embed'
 width='100%' height='1000px' frameborder='0'></iframe> 
 ```
 where the url listed points directly to my syllabus page.
